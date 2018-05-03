@@ -1,11 +1,9 @@
 body <- dashboardBody(
-	tags$head(tags$style(HTML('
-      .main-header .logo {
-        font-family: "Georgia", Times, "Georgia", serif;
-        font-weight: bold;
-        font-size: 24px;
-      }
-    '))),
+	dashboardBody(
+		tags$head(
+			tags$link(rel = "stylesheet", type = "text/css", href = "font.css")
+		)
+	),
 
 	tabItems(
 
