@@ -60,5 +60,5 @@ register_fields_names <- c("Pet's Name",
 
 register_fieldsMandatory <- all_register_fields[c(1,2,4,5,6)]
 
-registers_directory <- file.path("registers")
+registers_directory <- file.path("registers_data")
 

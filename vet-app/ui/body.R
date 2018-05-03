@@ -1,4 +1,12 @@
 body <- dashboardBody(
+	tags$head(tags$style(HTML('
+      .main-header .logo {
+        font-family: "Georgia", Times, "Georgia", serif;
+        font-weight: bold;
+        font-size: 24px;
+      }
+    '))),
+
 	tabItems(
 
 	# Register Form -----------------------------------------------------------
