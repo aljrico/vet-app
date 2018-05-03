@@ -1,30 +1,34 @@
 body <- dashboardBody(
-	dashboardBody(
 		tags$head(
 			tags$link(rel = "stylesheet", type = "text/css", href = "font.css")
-		)
-	),
+		),
 
 	tabItems(
 
 	# Register Form -----------------------------------------------------------
 		tabItem(tabName = "register",
-
 						# Call
 						shinyjs::useShinyjs(),
 						shinyjs::inlineCSS(appCSS),
 
 						div(id = "form",
-								titlePanel("New Pet"),
 
-								textInput(inputId = all_register_fields[[1]], label = labelMandatory(register_fields_names[[1]]), ""),
-								textInput(inputId = all_register_fields[[2]], label = labelMandatory(register_fields_names[[2]]), ""),
-								selectInput(inputId = all_register_fields[[3]], label = register_fields_names[[3]], colours),
-								textInput(inputId = all_register_fields[[5]], label = labelMandatory(register_fields_names[[5]]), ""),
-								textInput(inputId = all_register_fields[[6]], label = labelMandatory(register_fields_names[[6]]), ""),
-								selectInput(inputId = all_register_fields[[7]], label = register_fields_names[[7]], pet_mood),
-								checkboxInput(inputId = all_register_fields[[4]], label = labelMandatory(register_fields_names[[4]]), FALSE),
-								actionButton("submit", "Submit", class = "btn-primary")
+							fluidRow(
+								column(4,
+											 titlePanel("New Pet"),
+
+											 textInput(inputId = "pet_name", label = labelMandatory(list_fields[["pet_name"]]), ""),
+											 textInput(inputId = "pet_species", label = labelMandatory(list_fields[["pet_species"]]), ""),
+											 selectInput(inputId = "pet_colour", label = list_fields[["pet_colour"]], colours),
+											 selectInput(inputId = "pet_mood", label = list_fields[["pet_mood"]], pet_mood),
+											 checkboxInput(inputId = "castrated", label = list_fields[["castrated"]], FALSE),
+
+											 actionButton("submit", "Submit", class = "btn-primary")
+
+											 )
+
+							)
+
 								),
 
 								shinyjs::hidden(

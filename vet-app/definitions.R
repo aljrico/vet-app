@@ -40,25 +40,24 @@ all_register_fields <- c(pet_register_fields,
 												 owner_register_fields
 												 )
 
-register_fields_names <- c("Pet's Name",
-													 "Species",
-													 "Hair Colour",
-													 "Castrated?",
-													 "Human's Name",
-													 "Human's Surname",
-													 "Pet's Mood"
-													 )
 
-register_fields_names <- c("Pet's Name",
-													 "Species",
-													 "Hair Colour",
-													 "Castrated?",
-													 "Human's Name",
-													 "Human's Surname",
-													 "Pet's Mood"
-													 )
+list_fields <- as.list(all_register_fields)
+names(list_fields) <- all_register_fields
 
-register_fieldsMandatory <- all_register_fields[c(1,2,4,5,6)]
+# Set Public Names
+	list_fields[["pet_name"]] <- "Pet's Name"
+	list_fields[["pet_species"]] <- "Species"
+	list_fields[["pet_colour"]] <- "Cape"
+	list_fields[["castrated"]] <- "Castrated?"
+	list_fields[["pet_mood"]] <- "Pet's Mood"
+	list_fields[["owner_name"]] <- "Human's Name"
+	list_fields[["owner_surname"]] <- "Human's Surname"
+	list_fields[["owner_id"]] <- "Human ID"
+	list_fields[["phone_number"]] <- "Phone Number"
+	list_fields[["gender"]] <- "Gender"
+
+
+register_fieldsMandatory <- all_register_fields[c(1,2,4)]
 
 registers_directory <- file.path("registers_data")
 

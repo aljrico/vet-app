@@ -3,8 +3,6 @@
 # Server
 
 server <- function(input, output) {
-
-
 	# Mandatory Fields --------------------------------------------------------
 	#Check if mandatory fields are filled to enable submit button
 	observe({
