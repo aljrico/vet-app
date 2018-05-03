@@ -57,7 +57,7 @@ names(list_fields) <- all_register_fields
 	list_fields[["gender"]] <- "Gender"
 
 
-register_fieldsMandatory <- all_register_fields[c(1,2,4)]
+register_fieldsMandatory <- all_register_fields[c(1,2,4,6,7,8,9)]
 
 registers_directory <- file.path("registers_data")
 

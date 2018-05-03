@@ -15,19 +15,33 @@ body <- dashboardBody(
 
 							fluidRow(
 								column(4,
-											 titlePanel("New Pet"),
+											 titlePanel("Pet"),
 
 											 textInput(inputId = "pet_name", label = labelMandatory(list_fields[["pet_name"]]), ""),
 											 textInput(inputId = "pet_species", label = labelMandatory(list_fields[["pet_species"]]), ""),
 											 selectInput(inputId = "pet_colour", label = list_fields[["pet_colour"]], colours),
 											 selectInput(inputId = "pet_mood", label = list_fields[["pet_mood"]], pet_mood),
-											 checkboxInput(inputId = "castrated", label = list_fields[["castrated"]], FALSE),
+											 radioButtons(inputId = "castrated", label = labelMandatory(list_fields[["castrated"]]), c("Yes","No"), selected = character(0))
 
+
+
+											 ),
+								column(4,
+											 titlePanel("Owner"),
+
+											 textInput(inputId = "owner_name", label = labelMandatory(list_fields[["owner_name"]]), ""),
+											 textInput(inputId = "owner_surname", label = labelMandatory(list_fields[["owner_surname"]]), ""),
+											 textInput(inputId = "owner_id", label = labelMandatory(list_fields[["owner_id"]]), ""),
+											 textInput(inputId = "phone_number", label = labelMandatory(list_fields[["phone_number"]]), "")
+
+
+								),
+								column(7, offset = 1,
 											 actionButton("submit", "Submit", class = "btn-primary")
-
 											 )
 
 							)
+
 
 								),
 
