@@ -66,12 +66,7 @@ server <- function(input, output) {
 	# Show Registers Table ----------------------------------------------------
 	###Creating reactive values since we will need to modify the table with events and triggers
 	vals=reactiveValues()
-	vals$Data=data.table(
-		Brands=paste0("Brand",1:10),
-		Forecasted_Growth=sample(1:20,10),
-		Last_Year_Purchase=round(rnorm(10,1000,1000)^2),
-		Contact=paste0("Brand",1:10,"@email.com")
-	)
+	vals$Data=data.table(read_register()[,c("pet_name","pet_species","owner_surname","owner_name")])
 
 	##The Body is classic, we just used the group button to improve the render
 	##And to show the user the actions are related
@@ -84,10 +79,10 @@ server <- function(input, output) {
 								 ##Grouped button
 								 HTML('') ),
 					##Rendering the datatable
-					column(12,dataTableOutput("Main_table")))
+					column(12,dataTableOutput("table_registers")))
 		)
 	})
 	##The code may seem weird but we will modify it later
-	output$Main_table=renderDataTable({ DT=vals$Data; datatable(DT)})
+	output$table_registers=renderDataTable({ DT=vals$Data; datatable(DT)})
 }
 

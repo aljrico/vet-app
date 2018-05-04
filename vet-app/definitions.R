@@ -25,15 +25,15 @@ pet_register_fields <- c("pet_name",
 												 "pet_species",
 												 "pet_colour",
 												 "castrated",
-												 "pet_mood"
+												 "pet_mood",
+												 "gender"
 												 )
 
 # Owner's Information required for registering the pet
 owner_register_fields <- c("owner_name",
 													 "owner_surname",
 													 "owner_id",
-													 "phone_number",
-													 "gender"
+													 "phone_number"
 													 )
 
 all_register_fields <- c(pet_register_fields,
@@ -56,8 +56,7 @@ names(list_fields) <- all_register_fields
 	list_fields[["phone_number"]] <- "Phone Number"
 	list_fields[["gender"]] <- "Gender"
 
-
-register_fieldsMandatory <- all_register_fields[c(1,2,4,6,7,8,9)]
+register_fieldsMandatory <- all_register_fields[c(1,2,4,6,7,8,9,10)]
 
 registers_directory <- file.path("registers_data")
 
