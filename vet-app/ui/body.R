@@ -14,7 +14,7 @@ body <- dashboardBody(
 						div(id = "form",
 
 							fluidRow(
-								column(4,
+								column(6,
 											 titlePanel("Pet"),
 
 											 textInput(inputId = "pet_name", label = labelMandatory(list_fields[["pet_name"]]), ""),
@@ -26,7 +26,7 @@ body <- dashboardBody(
 
 
 											 ),
-								column(4,
+								column(6,
 											 titlePanel("Owner"),
 
 											 textInput(inputId = "owner_name", label = labelMandatory(list_fields[["owner_name"]]), ""),
@@ -36,8 +36,8 @@ body <- dashboardBody(
 
 
 								),
-								column(7, offset = 1,
-											 actionButton("submit", "Submit", class = "btn-primary")
+								column(6, offset = 1,
+											 actionButton("submit", "Submit", class = "btn-primary", style="float:right", width = "100px")
 											 )
 
 							)
