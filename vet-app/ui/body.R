@@ -59,6 +59,15 @@ body <- dashboardBody(
 																)
 		),
 
+	tabItem(tabName = "register_search",
+					div(
+						id = "appDesc",
+						includeMarkdown(file.path("ui","appDesc.md"))
+					)
+	),
+
+
+
 # Home Page ---------------------------------------------------------------
 		tabItem(tabName = "home",
 						div(

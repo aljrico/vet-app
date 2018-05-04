@@ -7,6 +7,7 @@ library(DT)
 source("css.R")
 source("definitions.R")
 source("functions.R")
+source("read_registers.R")
 
 source("ui/sidebar.R")
 source("ui/header.R")

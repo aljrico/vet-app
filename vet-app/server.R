@@ -62,4 +62,32 @@ server <- function(input, output) {
 		data <- t(data)
 		data
 	})
+
+	# Show Registers Table ----------------------------------------------------
+	###Creating reactive values since we will need to modify the table with events and triggers
+	vals=reactiveValues()
+	vals$Data=data.table(
+		Brands=paste0("Brand",1:10),
+		Forecasted_Growth=sample(1:20,10),
+		Last_Year_Purchase=round(rnorm(10,1000,1000)^2),
+		Contact=paste0("Brand",1:10,"@email.com")
+	)
+
+	##The Body is classic, we just used the group button to improve the render
+	##And to show the user the actions are related
+	output$MainBody=renderUI({
+		fluidPage(
+			box(width=12,
+					h3(strong("Actions on datatable with buttons"),align="center"),
+					hr(),
+					column(6,offset = 6,
+								 ##Grouped button
+								 HTML('') ),
+					##Rendering the datatable
+					column(12,dataTableOutput("Main_table")))
+		)
+	})
+	##The code may seem weird but we will modify it later
+	output$Main_table=renderDataTable({ DT=vals$Data; datatable(DT)})
 }
+
