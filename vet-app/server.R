@@ -66,7 +66,13 @@ server <- function(input, output) {
 	# Show Registers Table ----------------------------------------------------
 	###Creating reactive values since we will need to modify the table with events and triggers
 	vals=reactiveValues()
-	vals$Data=data.table(read_register()[,c("pet_name","pet_species","owner_surname","owner_name")])
+	vals$Data=setnames(data.table(
+		read_register[,c("pet_name")],
+		read_register[,c("pet_species")],
+		read_register[,c("owner_surname")],
+		read_register[,c("owner_name")]
+		),c("Pet's Name","Species","Owner Surname","Owner Name")
+	)
 
 	##The Body is classic, we just used the group button to improve the render
 	##And to show the user the actions are related

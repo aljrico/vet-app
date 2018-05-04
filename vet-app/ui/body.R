@@ -60,6 +60,8 @@ body <- dashboardBody(
 																)
 		),
 
+# Register Search ---------------------------------------------------------
+
 	tabItem(tabName = "register_search",
 					div(
 						id = "appDesc",
