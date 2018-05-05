@@ -89,6 +89,6 @@ server <- function(input, output) {
 		)
 	})
 	##The code may seem weird but we will modify it later
-	output$table_registers=renderDataTable({ DT=vals$Data; datatable(DT)})
+	output$table_registers=renderDataTable({ DT=vals$Data; datatable(DT, selection = "single")})
 }
 
