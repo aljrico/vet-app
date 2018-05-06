@@ -21,13 +21,17 @@ server <- function(input, output) {
 
 
 	# Submit Button -----------------------------------------------------------
-	# Save Data
-	observeEvent(input$submit, {
-		saveData(formData())
+	# Format Data
+	formData <- reactive({
+		data <- sapply(all_register_fields, function(x) input[[x]])
+		data <- c(data, timestamp = epochTime())
+		data <- t(data)
+		data
 	})
 
 	# Confirm submit data en restore empty values
 	observeEvent(input$submit, {
+
 		shinyjs::disable("submit")
 		shinyjs::show("submit_msg")
 		shinyjs::hide("error")
@@ -52,15 +56,6 @@ server <- function(input, output) {
 	observeEvent(input$submit_another, {
 		shinyjs::show("form")
 		shinyjs::hide("thankyou_msg")
-	})
-
-
-	# Format Data -------------------------------------------------------------
-	formData <- reactive({
-		data <- sapply(all_register_fields, function(x) input[[x]])
-		data <- c(data, timestamp = epochTime())
-		data <- t(data)
-		data
 	})
 
 	# Show Registers Table ----------------------------------------------------
