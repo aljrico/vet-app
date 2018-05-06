@@ -65,7 +65,7 @@ body <- dashboardBody(
 	tabItem(tabName = "register_search",
 					div(
 						id = "appDesc",
-						uiOutput("MainBody")
+						uiOutput("search_files")
 					)
 	),
 

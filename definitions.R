@@ -58,5 +58,8 @@ names(list_fields) <- all_register_fields
 
 register_fieldsMandatory <- all_register_fields[c(1,2,4,6,7,8,9,10)]
 
+
+# Registers Files
 registers_directory <- file.path("registers_data")
+registers_file <- "all_files.csv"
 

@@ -8,3 +8,8 @@ read_register <- function(){
 	return(registers_data)
 }
 
+read_register <- function(){
+	filename <- registers_file
+	files_path <- file.path(registers_directory, filename)
+	fread(file = files_path)
+}
