@@ -15,7 +15,7 @@ body <- dashboardBody(
 
 							fluidRow(
 								column(6,
-											 titlePanel("Pet"),
+											 titlePanel("PET"),
 
 											 textInput(inputId = "pet_name", label = labelMandatory(list_fields[["pet_name"]]), ""),
 											 selectInput(inputId = "pet_species", label = labelMandatory(list_fields[["pet_species"]]), species_list),
@@ -28,7 +28,7 @@ body <- dashboardBody(
 
 											 ),
 								column(6,
-											 titlePanel("Owner"),
+											 titlePanel("OWNER"),
 
 											 textInput(inputId = "owner_name", label = labelMandatory(list_fields[["owner_name"]]), ""),
 											 textInput(inputId = "owner_surname", label = labelMandatory(list_fields[["owner_surname"]]), ""),
