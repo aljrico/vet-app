@@ -18,7 +18,7 @@ body <- dashboardBody(
 											 titlePanel("Pet"),
 
 											 textInput(inputId = "pet_name", label = labelMandatory(list_fields[["pet_name"]]), ""),
-											 textInput(inputId = "pet_species", label = labelMandatory(list_fields[["pet_species"]]), ""),
+											 selectInput(inputId = "pet_species", label = labelMandatory(list_fields[["pet_species"]]), species_list),
 											 selectInput(inputId = "pet_colour", label = list_fields[["pet_colour"]], colours),
 											 selectInput(inputId = "pet_mood", label = list_fields[["pet_mood"]], pet_mood),
 											 radioButtons(inputId = "castrated", label = labelMandatory(list_fields[["castrated"]]), c("Yes","No"), selected = character(0)),
@@ -74,8 +74,7 @@ body <- dashboardBody(
 # Home Page ---------------------------------------------------------------
 		tabItem(tabName = "home",
 						div(
-							id = "appDesc",
-							includeMarkdown(file.path("ui","appDesc.md"))
+							id = "appDesc"
 						)
 		)
 	)

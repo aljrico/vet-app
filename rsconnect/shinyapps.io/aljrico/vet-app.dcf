@@ -1,0 +1,10 @@
+name: vet-app
+title:
+username:
+account: aljrico
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 341268
+bundleId: 1370189
+url: https://aljrico.shinyapps.io/vet-app/
+when: 1526117285.41679

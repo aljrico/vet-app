@@ -60,5 +60,6 @@ server <- function(input, output) {
 
 	# Show Registers Table ----------------------------------------------------
 	source("source_files/registers_search_table.R", local = TRUE)
+
 }
 

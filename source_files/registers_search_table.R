@@ -13,7 +13,7 @@ vals$Data <- setnames(data.table(
 output$search_files <- renderUI({
 	fluidPage(
 		box(width=12,
-				h3(strong("Actions on datatable with buttons"),align="center"),
+				h3(strong("Files"),align="center"),
 				hr(),
 				column(6,offset = 6,
 							 ##Grouped button

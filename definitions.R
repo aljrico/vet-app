@@ -19,6 +19,16 @@ pet_mood <- c("Good Guy",
 							"Agressive"
 							)
 
+# List of species
+
+species_list <- sort(c("Dog",
+									"Cat",
+									"Rabbit",
+									"Ferret",
+									"Fish",
+									"Hamster",
+									"Guinea Pig"))
+
 
 # Pet's Information requiered to the register of the pet
 pet_register_fields <- c("pet_name",
