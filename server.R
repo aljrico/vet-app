@@ -15,8 +15,8 @@ server <- function(input, output, session) {
 	# Check username and password
 	observe({
 		if (USER$Logged == FALSE) {
-			if (!is.null(input$Login)) {
-				if (input$Login > 0) {
+			if (!is.null(input$login_button)) {
+				if (input$login_button > 0) {
 					Username <- isolate(input$userName)
 					Password <- isolate(input$passwd)
 					Id.username <- which(my_username == Username)
@@ -32,19 +32,13 @@ server <- function(input, output, session) {
 	})
 
 	# React to 'username' and 'password'
-	observe({
-		if (USER$Logged == FALSE) {
-
-			output$page <- renderUI({
-				div(class="outer",do.call(bootstrapPage,c("",ui_login())))
-			})
+	observeEvent(input$login_button, {
+		if(USER$Logged) {
+			shinyjs::show(id = "login_success")
+			shinyjs::hide(id = "login_failure")
+			shinyjs::show(id = "sidebar_menu")
 		}
-		if (USER$Logged == TRUE)
-		{
-			output$page <- renderUI({
-				div(class="outer",do.call(navbarPage,c(inverse=TRUE,title = "Contratulations you got in!",ui_in())))
-			})
-		}
+		if(!USER$Logged & !is.null(input$login_button)) shinyjs::show(id = "login_failure")
 	})
 
 	# Mandatory Fields --------------------------------------------------------
