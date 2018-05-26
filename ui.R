@@ -3,7 +3,8 @@ library(shiny)
 library(shinyjs)
 library(shinydashboard)
 library(DT)
-
+library(googlesheets)
+library(googledrive)
 
 source("css.R")
 source("definitions.R")

@@ -20,4 +20,10 @@ saveData <- function(data) {
 	registers_filepath <- file.path(registers_directory, filename)
 	write.table(x = data, file = registers_filepath,
 						row.names = FALSE, quote = TRUE, append = TRUE, col.names = FALSE, sep = ",")
+
+
+	# drive_auth("googlesheets_token.rds", reset = FALSE, cache = TRUE)
+	# registers_sheet_drive <- drive_upload(media = registers_filepath,
+	# 						 type = "spreadsheet"
+	# 						 )
 }

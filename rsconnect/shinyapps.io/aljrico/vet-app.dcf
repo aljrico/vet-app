@@ -5,6 +5,6 @@ account: aljrico
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 341268
-bundleId: 1370223
+bundleId: 1394161
 url: https://aljrico.shinyapps.io/vet-app/
-when: 1526121230.00583
+when: 1527340954.49887
