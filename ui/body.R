@@ -73,7 +73,16 @@ body <- dashboardBody(
 	# Home Page ---------------------------------------------------------------
 		tabItem(tabName = "home",
 						div(
-							id = "appDesc"
+							id = "appDesc",
+										wellPanel(textInput("userName", "Username"),
+															passwordInput("passwd", "Password"),
+															br(),actionButton("Login", "Log in"))),
+								tags$style(type="text/css", "#login {font-size:10px;   text-align: center;position:absolute;top: 40%;center: 50%;margin-top: -100px;margin-center: -150px;}"),
+						shinyjs::hidden(
+							div(id = "login_success",
+									h3("Thanks, your register was submitted successfully!"),
+									actionButton("submit_another", "Submit another response", class = "login_success")
+							)
 						)
 		)
 	)

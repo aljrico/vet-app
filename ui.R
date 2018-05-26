@@ -14,14 +14,21 @@ source("read_registers.R")
 source("ui/sidebar.R")
 source("ui/header.R")
 source("ui/body.R")
+source("ui/ui_login.R")
+
+
+
+# Go first to the Log In page
+
 
 
 # Define UI for application
-ui <- dashboardPage(
-	skin = "black",
-	header,
-	sidebar,
-	body
-)
-
+ui_in <- function(){
+	dashboardPage(
+		skin = "black",
+		header,
+		sidebar,
+		body
+	)
+}
 

@@ -2,7 +2,51 @@
 
 # Server
 
-server <- function(input, output) {
+server <- function(input, output, session) {
+
+# Login Check -------------------------------------------------------------
+
+	# Define Variable
+	Logged = FALSE
+	my_username <- "test"
+	my_password <- "test"
+	USER <- reactiveValues(Logged = Logged)
+
+	# Check username and password
+	observe({
+		if (USER$Logged == FALSE) {
+			if (!is.null(input$Login)) {
+				if (input$Login > 0) {
+					Username <- isolate(input$userName)
+					Password <- isolate(input$passwd)
+					Id.username <- which(my_username == Username)
+					Id.password <- which(my_password == Password)
+					if (length(Id.username) > 0 & length(Id.password) > 0) {
+						if (Id.username == Id.password) {
+							USER$Logged <- TRUE
+						}
+					}
+				}
+			}
+		}
+	})
+
+	# React to 'username' and 'password'
+	observe({
+		if (USER$Logged == FALSE) {
+
+			output$page <- renderUI({
+				div(class="outer",do.call(bootstrapPage,c("",ui_login())))
+			})
+		}
+		if (USER$Logged == TRUE)
+		{
+			output$page <- renderUI({
+				div(class="outer",do.call(navbarPage,c(inverse=TRUE,title = "Contratulations you got in!",ui_in())))
+			})
+		}
+	})
+
 	# Mandatory Fields --------------------------------------------------------
 	#Check if mandatory fields are filled to enable submit button
 	observe({
