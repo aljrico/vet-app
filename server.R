@@ -61,5 +61,13 @@ server <- function(input, output) {
 	# Show Registers Table ----------------------------------------------------
 	source("source_files/registers_search_table.R", local = TRUE)
 
+
+# Automatic Data Refresh --------------------------------------------------
+	sourceData <- reactive({
+		invalidateLater(1000000,session)
+
+		read_register()
+	})
+
 }
 

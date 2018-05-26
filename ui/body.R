@@ -6,12 +6,12 @@ body <- dashboardBody(
 	tabItems(
 
 	# Register Form -----------------------------------------------------------
-		tabItem(tabName = "register",
-						# Call
-						shinyjs::useShinyjs(),
-						shinyjs::inlineCSS(appCSS),
+	tabItem(tabName = "register",
+					# Call
+					shinyjs::useShinyjs(),
+					shinyjs::inlineCSS(appCSS),
 
-						div(id = "form",
+					div(id = "form",
 
 							fluidRow(
 								column(6,
@@ -26,7 +26,7 @@ body <- dashboardBody(
 
 
 
-											 ),
+								),
 								column(6,
 											 tags$h1("Owner"),
 
@@ -39,28 +39,27 @@ body <- dashboardBody(
 								),
 								column(6, offset = 1,
 											 actionButton("submit", "Submit", class = "btn-primary", style="float:right", width = "100px")
-											 )
+								)
 
 							)
 
 
-								),
+					),
 
-								shinyjs::hidden(
-									span(id = "submit_msg", "Submitting..."),
-									div(id = "error",
-											div(br(), tags$b("Error: "), span(id = "error_msg"))
-									)
-								),
-								shinyjs::hidden(
-									div(id = "thankyou_msg",
-											h3("Thanks, your register was submitted successfully!"),
-											actionButton("submit_another", "Submit another response", class = "btn-primary")
-											)
-																)
-		),
-
-# Register Search ---------------------------------------------------------
+					shinyjs::hidden(
+						span(id = "submit_msg", "Submitting..."),
+						div(id = "error",
+								div(br(), tags$b("Error: "), span(id = "error_msg"))
+						)
+					),
+					shinyjs::hidden(
+						div(id = "thankyou_msg",
+								h3("Thanks, your register was submitted successfully!"),
+								actionButton("submit_another", "Submit another response", class = "btn-primary")
+						)
+					)
+	),
+	# Register Search ---------------------------------------------------------
 
 	tabItem(tabName = "register_search",
 					div(
@@ -71,7 +70,7 @@ body <- dashboardBody(
 
 
 
-# Home Page ---------------------------------------------------------------
+	# Home Page ---------------------------------------------------------------
 		tabItem(tabName = "home",
 						div(
 							id = "appDesc"
